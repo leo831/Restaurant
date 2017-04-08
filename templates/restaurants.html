@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Restaurants</h1>
+        <p class="lead text-muted">Explore the Restaurnt application that lets the user login to create, edit and delete a restaurant. The user has the option to add a menu to a restaurant.</p>
+        <p>
+        {%if 'username' in session %}
+          <a href="{{url_for('newRestaurant')}}" class="btn btn-primary btn-lg">Add Restaurant</a>
+
+		{%endif%}
+        </p>
+      </div>
+    </section>
+
+
+	{% for restaurant in restaurants %}
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="{{restaurant.image}}" alt="Generic placeholder image" width="140" height="140">
+          <h2>{{restaurant.name}}</h2>
+          <p>{{restaurant.description}}</p>
+          <p><a class="btn btn-default" href="{{url_for('showMenu', restaurant_id = restaurant.id)}}" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+
+{% endfor %}
+</div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+      <!-- FOOTER -->
+      <footer>
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+
+    </div>
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+
+{% endblock %}

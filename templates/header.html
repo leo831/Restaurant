@@ -1,0 +1,19 @@
+
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+<div class="container d-flex justify-content-between">
+      <a class="navbar-brand" href="{{url_for('showRestaurants')}}">Show All Restaurants</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+     <div class="text-right">
+     {%if 'username' not in session %}
+            <a href="{{url_for('showLogin')}}" class=" navbar-brand text-right">Click Here to Login </a>
+            {% else %}
+            <a href="{{url_for('disconnect')}}" class=" navbar-brand text-right">Logout </a>
+            {% endif %}
+
+    </div>
+      </div>
+</div>
+    </nav>
+
