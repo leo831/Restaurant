@@ -23,6 +23,7 @@
           <div id="signInButton">
           <span class="g-signin"
             data-scope="openid email"
+            data-clientid="YOUR_APP_ID"
             data-redirecturi="postmessage"
             data-accesstype="offline"
             data-cookiepolicy="single_host_origin"
@@ -69,6 +70,7 @@ function signInCallback(authResult) {
 <script>
   window.fbAsyncInit = function() {
   FB.init({
+    appId      : 'YOUR_APP_ID',
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
